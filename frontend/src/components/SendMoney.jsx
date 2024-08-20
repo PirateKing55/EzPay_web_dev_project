@@ -27,7 +27,7 @@ export const SendMoney = () => {
         onclick={async () => {
           try {
             const response = await axios.post(
-              "http://localhost:3000/api/v1/account/transfer",
+              "https://ezpay-yaman.onrender.com/api/v1/account/transfer",
               {
                 to: sendMoneyToId,
                 amount: amount,

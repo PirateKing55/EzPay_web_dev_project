@@ -10,7 +10,7 @@ export const Balance = () => {
   const [balance, setBalance] = useState(0.0);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/account/balance", {
+      .get("https://ezpay-yaman.onrender.com/api/v1/account/balance", {
         headers,
       })
       .then((response) => {
