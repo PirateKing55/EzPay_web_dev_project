@@ -1,6 +1,9 @@
 import { Button } from "./Button";
+import { useNavigate } from "react-router-dom";
+
 
 export const Appbar = () => {
+  const navigate = useNavigate();
   const capitalizeLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
@@ -15,7 +18,7 @@ export const Appbar = () => {
         <Button
           onClick={() => {
             localStorage.clear();
-            window.location.href = "/signup";
+            navigate("/");
           }}
           label={"Logout"}
         />
