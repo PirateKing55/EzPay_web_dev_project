@@ -17,8 +17,8 @@ export const Appbar = () => {
       <div className="flex items-center justify-center">
         <Button
           onClick={() => {
-            localStorage.clear();
             navigate("/");
+            localStorage.clear();
           }}
           label={"Logout"}
         />
