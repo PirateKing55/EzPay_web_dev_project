@@ -3,7 +3,7 @@ import { DashboardPage, SendMoneyPage, SignInPage, SignUpPage } from "./pages";
 
 function App() {
   return (
-    <>
+    <div className='min-h-screen'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignUpPage />} />
@@ -13,7 +13,7 @@ function App() {
           <Route path="/send" element={<SendMoneyPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

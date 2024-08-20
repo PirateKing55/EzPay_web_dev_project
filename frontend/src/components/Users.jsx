@@ -14,10 +14,10 @@ export const Users = () => {
   };
   useEffect(() => {
     axios
-      .get("https://ezpay-6twy.onrender.com/api/v1/user/bulk?filter=" + filter, {
+      .get("http://localhost:3000/api/v1/user/bulk?filter=" + filter, {
         headers,
       })
-      .then((response) => setUsers(response.data.user))
+      .then((response) => setUsers(response.data.users))
       .catch((error) => {
         console.error("Error:", error.message);
       });
@@ -28,11 +28,17 @@ export const Users = () => {
         onChange={(e) => setFilter(e.target.value)}
         placeholder={"Search for users"}
       />
-      {users.map((user) => {
-        return (
+      {users.length === 0 ? (
+        <div className="flex justify-center items-center h-[400px]">
+          <h1 className="text-xl font-semibold text-slate-300">
+            No users found
+          </h1>
+        </div>
+      ) : (
+        users.map((user) => (
           <User key={user._id} firstName={user.firstName} userId={user._id} />
-        );
-      })}
+        ))
+      )}
     </div>
   );
 };

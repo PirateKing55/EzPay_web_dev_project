@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Balance = () => {
   const token = localStorage.getItem("token");
@@ -9,7 +10,7 @@ export const Balance = () => {
   const [balance, setBalance] = useState(0.0);
   useEffect(() => {
     axios
-      .get("https://ezpay-6twy.onrender.com/api/v1/account/balance", {
+      .get("http://localhost:3000/api/v1/account/balance", {
         headers,
       })
       .then((response) => {
@@ -17,6 +18,7 @@ export const Balance = () => {
       })
       .catch((error) => {
         console.error("Error:", error.message);
+        toast.error(error.response.data.message);
       });
   }, []);
   return (
@@ -25,6 +27,7 @@ export const Balance = () => {
         Your Balance:{" "}
         <span className="text-white">Rs. {balance.toFixed(2)}</span>
       </h1>
+      <Toaster />
     </div>
   );
 };

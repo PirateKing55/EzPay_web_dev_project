@@ -37,7 +37,7 @@ export const SignIn = () => {
         onclick={async () => {
           try {
             const response = await axios.post(
-              "https://ezpay-6twy.onrender.com/api/v1/user/signin",
+              "http://localhost:3000/api/v1/user/signin",
               {
                 username: email,
                 password: password,
